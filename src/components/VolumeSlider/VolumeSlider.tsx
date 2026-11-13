@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 
 export interface VolumeSliderProps {
   label?: string;
+  color?: 'primary' | 'secondary' | 'success';
   defaultValue?: number;
   min?: number;
   max?: number;
@@ -13,6 +14,7 @@ export interface VolumeSliderProps {
 
 export default function VolumeSlider({
   label = 'Volume',
+  color = 'primary',
   defaultValue = 0,
   min = 0,
   max = 100,
@@ -39,7 +41,7 @@ export default function VolumeSlider({
         max={max}
         aria-labelledby={labelId}
         data-testid="volume-slider"
-        color="primary"
+        color={color}
       />
     </Box>
   );
