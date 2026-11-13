@@ -16,7 +16,7 @@ describe('VolumeSlider Component', () => {
     expect(slider).toHaveAttribute('aria-valuenow', '70');
   });
 
-  it('debe ejecutar la función onChange con el nuevo valor', () => {
+  it('debe ejecutar la funciÃ³n onChange con el nuevo valor', () => {
     const handleChange = vi.fn();
     render(<VolumeSlider label="Prueba" defaultValue={30} onChange={handleChange} />);
     fireEvent.change(screen.getByRole('slider'), { target: { value: 70 } });
@@ -27,4 +27,9 @@ describe('VolumeSlider Component', () => {
     render(<VolumeSlider label="Volumen" />);
     expect(screen.getByText('Volumen')).toBeInTheDocument();
   });
+});
+
+it('debe iniciar en 80 cuando defaultValue es 80', () => {
+  render(<VolumeSlider defaultValue={80} />);
+  expect(screen.getByRole('slider')).toHaveAttribute('aria-valuenow', '80');
 });
